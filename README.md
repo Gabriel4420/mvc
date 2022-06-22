@@ -38,7 +38,7 @@ Projeto Todo feito para o entendimento sobre o conceito, e a arquitetura MVC. Fe
 
 :heavy_check_mark: Criação de tarefas;\
 :heavy_check_mark: Exclusão de tarefas;\
-:heavy_check_mark: Atualização de tarefas;
+:heavy_check_mark: Atualização de tarefas;\
 :heavy_check_mark: Atualização de status feito de tarefas;\
 
 ## :rocket: Tecnologias ##
@@ -60,9 +60,6 @@ Antes de começar :checkered_flag:, você precisa ter o [Git](https://git-scm.co
 ```bash
 # Clone este repositório
 $ git clone https://github.com/Gabriel4420/mvc
-
-# Entre na pasta
-$ cd mvc
 
 # Instale as dependências
 $ yarn
