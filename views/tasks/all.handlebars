@@ -1,0 +1,55 @@
+<div class="container">
+
+    <h1 class="mb-4 mt-4 text-center">Todas as Tasks</h1>
+    {{#each tasks}}
+    <div class="tasksLine">
+        <div class="card" >
+                    <div class="card-body">
+                        {{#if this.done}}
+                        <h5 class="card-title done text-secondary">{{this.title}}</h5>
+                        <p class="card-text done text-secondary">{{this.description}}</p>
+                        {{else}}
+                        <h5 class="card-title">{{this.title}}</h5>
+                        <p class="card-text">{{this.description}}</p>
+                        {{/if}}
+                        <div class="btn-group" role="group" aria-label="Basic example">
+                            <form action="/tasks/toggle" class="ml-4" method="post">
+                                <input type="hidden" name="id" value="{{this.id}}">
+                                <input type="hidden" name="done" value="{{this.done}}">
+                                <button type="submit" id="liveToastDoneBtn" class="btn btn-secondary "><i class="bi bi-check2"></i></button>
+                            </form>
+                            <a href="/tasks/edit/{{this.id}}" >
+                                <button class="btn btn-secondary">
+                                <i class="bi bi-pencil-square"></i>
+                                </button>
+                            </a>
+                            <form action="/tasks/remove" method="post">
+                                <input type="hidden" name="id" value="{{this.id}}">
+                                <button type="submit" class="btn btn-danger"><i class="bi bi-x-lg"></i></button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="toast-container position-fixed bottom-0 end-0 p-3 ">
+                    <div id="liveToastDone" class="toast align-items-center bg-success " role="alert" aria-live="assertive"
+                        aria-atomic="true">
+                
+                        <div class="d-flex">
+                            <div class="toast-body text-light">
+                                {{#if this.done}}
+                                     Task re-criada com sucesso.
+                                {{else}}
+                                     Task concluida com sucesso.
+                                {{/if}}
+                                
+                            </div>
+                            <button type="button" class="btn-close me-2 m-auto btn-close-white " data-bs-dismiss="toast"
+                                aria-label="Close"></button>
+                        </div>
+                    </div>
+                </div>
+                </div>
+   
+    {{/each}}
+</div>
